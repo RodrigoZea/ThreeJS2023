@@ -4,10 +4,9 @@ import { useCallback, useEffect, useRef } from "react";
 import { Mesh } from "three";
 
 function LookAtCube() {
-    const { width, height } = useThree(state => state.size)
     const meshRef = useRef();
 
-    useFrame(() => {
+    useFrame(({ mouse, viewport }) => {
         if (!meshRef.current) {
           return;
         }
