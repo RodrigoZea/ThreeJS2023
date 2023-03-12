@@ -10,18 +10,19 @@ function LookAtCube() {
         if (!meshRef.current) {
           return;
         }
-    
+
+
         const x = (mouse.x * viewport.width) / 2.5
         const y = (mouse.y * viewport.height) / 2.5
         meshRef.current.lookAt(x, y, 1)
+
+        if (meshRef.current.position.y <= -1) {
+            meshRef.current.position.y += 0.02;
+        }
     })
       
-    useEffect(() => {
-
-    }, [])
-
     return(
-        <mesh ref={meshRef}>
+        <mesh ref={meshRef} position={[-2.5, -2, 0]}>
             <boxGeometry />
             <meshStandardMaterial color="purple"/>
         </mesh>
