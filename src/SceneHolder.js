@@ -1,31 +1,38 @@
-import { PerspectiveCamera } from "@react-three/drei";
+import { useSpring, animated } from '@react-spring/three'
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useCallback, useEffect, useRef } from "react";
-import { Mesh } from "three";
 
 function LookAtCube() {
     const meshRef = useRef();
-
+    const {boxPositionX, boxPositionY} = useSpring({
+        from: {
+            boxPositionX: -2.5,
+            boxPositionY: -2
+        }, to: [{
+            boxPositionY: -1
+        }],
+        config: {
+            mass: 5,
+            friction: 30,
+        },
+        immediate: true,
+    })
+    
     useFrame(({ mouse, viewport }) => {
         if (!meshRef.current) {
           return;
         }
 
-
         const x = (mouse.x * viewport.width) / 2.5
         const y = (mouse.y * viewport.height) / 2.5
         meshRef.current.lookAt(x, y, 1)
-
-        if (meshRef.current.position.y <= -1) {
-            meshRef.current.position.y += 0.02;
-        }
     })
       
     return(
-        <mesh ref={meshRef} position={[-2.5, -2, 0]}>
+        <animated.mesh ref={meshRef} position-x={boxPositionX} position-y={boxPositionY}>
             <boxGeometry />
             <meshStandardMaterial color="purple"/>
-        </mesh>
+        </animated.mesh>
     )
 }
 
