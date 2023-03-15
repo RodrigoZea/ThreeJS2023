@@ -2,6 +2,9 @@ import { useSpring, animated } from '@react-spring/three'
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { PerspectiveCamera, Scroll, ScrollControls, Preload, Html, useProgress } from "@react-three/drei";
 import { useCallback, useEffect, useRef, Suspense } from "react";
+import { BsTwitter, BsGithub } from "react-icons/bs";
+import { HiMail } from "react-icons/hi";
+import './index.scss'
 
 function LookAtCube() {
     const meshRef = useRef();
@@ -59,31 +62,43 @@ function DroppingBox() {
     )
 }
 
-function ScrollableArea() {
-
-}
-
 function Loader() {
     const { progress } = useProgress()
     return <Html center>{progress} % loaded</Html>
 }
 
+function Header() {
+    return(
+        <div id="header">
+            <span>rodrigo zea.</span>
+            <div id="icons">
+                <BsTwitter style={{marginRight:'0.3em'}}/>
+                <BsGithub style={{marginRight:'0.3em'}}/>
+                <HiMail/>
+            </div>
+        </div>
+    )
+}
+
 export default function SceneHolder() {
     return(
-        <Canvas>
-            <PerspectiveCamera makeDefault position={[-1.3, -0.5, 2]}/>
-            <ambientLight />
-            <pointLight position={[10, 10, 10]}/>
-            <Suspense fallback={<Loader />}>
-                <ScrollControls damping={2} pages={2}>
-                    <Scroll>
-                        {/* Parametrize page positions so it's easier to handle here */}
-                        <LookAtCube/>
-                        <DroppingBox/>
-                    </Scroll>
-                </ScrollControls>
-            </Suspense>
-        </Canvas>
+        <div id="container">
+            <Header/>
+            <Canvas>
+                <PerspectiveCamera makeDefault position={[-1.3, -0.5, 2]}/>
+                <ambientLight />
+                <pointLight position={[10, 10, 10]}/>
+                <Suspense fallback={<Loader />}>
+                    <ScrollControls damping={2} pages={2}>
+                        <Scroll>
+                            {/* Parametrize page positions so it's easier to handle here */}
+                            <LookAtCube/>
+                            {/*<DroppingBox/>*/}
+                        </Scroll>
+                    </ScrollControls>
+                </Suspense>
+            </Canvas>
+        </div>
     );
 }
 
@@ -91,6 +106,7 @@ export default function SceneHolder() {
 Navbar on top when doing portfolio
 
 Sections to have 
+Introductory screen with button and lookat
 General information about myself (mascot on the left saying hi, textbox on the right)
 Interests (mascot swimming through an area)
 Previous work (horizontal ScrollControls)
