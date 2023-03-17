@@ -80,11 +80,11 @@ function Header() {
                     nameArr.current.map((i, index) => {
                         if (index == 0 || index == 8) {
                             return(
-                                <div id={"l"+index} ><span key={index}>{i}</span></div>
+                                <div id={"l"+index} key={index}><span>{i}</span></div>
                             )
                         } else {
                             return(
-                                <div className='animan' ><span key={index}>{i}</span></div>
+                                <div className='animan' key={index}><span>{i}</span></div>
                             ) 
                         }
                     })
@@ -92,9 +92,9 @@ function Header() {
             </div>
             
             <div id="icons">
-                <BsTwitter style={{marginRight:'0.3em'}}/>
-                <BsGithub style={{marginRight:'0.3em'}}/>
-                <HiMail/>
+                <BsTwitter className="header-icon" style={{marginRight:'0.5em'}}/>
+                <BsGithub className="header-icon" style={{marginRight:'0.5em'}}/>
+                <HiMail className="header-icon" />
             </div>
             
         </div>

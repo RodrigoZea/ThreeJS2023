@@ -1,10 +1,10 @@
 import './index.scss'
 
 const SVGComponent = (props) => (
-    <svg viewBox="0 0 100 20" {...props} id="wave-svg">
+    <svg viewBox="0 0 100 3.6" {...props} id="wave-svg">
       <defs>
         <linearGradient id="gradient">
-          <stop stop-color="#5622E2" />
+          <stop stopColor="#5622E2" />
         </linearGradient>
         <pattern
         id="wave"
@@ -36,7 +36,7 @@ const SVGComponent = (props) => (
       x={0}
       y={0}
       width={100}
-      height={15}
+      height={3}
       fill="url(#wave)"
       fillOpacity={1}
     />

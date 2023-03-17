@@ -41,7 +41,7 @@ html, body, #root, #container {
 
 #name:hover > #l8 {
     transform: translate(-3em);
-    transition: all 0.1s;
+    transition: all 0.05s;
 }
 #name:hover > .animan {
     -webkit-transform: scale(1, 0);
@@ -51,11 +51,16 @@ html, body, #root, #container {
     transform: scale(1, 0);
     transition: all 0.1s;
 }
-
-
-
 #wave-svg {
     position: fixed;
     top: 4em;
     z-index: 3;
+}
+
+.header-icon {
+    transition: all 0.1s;
+    &:hover {
+        font-size: 1.2em;
+        transition: all 0.1s;
+    }
 }
