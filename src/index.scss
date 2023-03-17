@@ -27,10 +27,31 @@ html, body, #root, #container {
     margin-right: 2em;
 }
 
-#name:hover > #r0 {
-    color: black;
-    transition: color 0.5s ease;
+
+#name {
+    display: inherit;
 }
+
+#l0, #l8, #l11 {
+    transition: 0.5s;
+}
+.animan {
+    transition: 0.2s;
+}
+
+#name:hover > #l8 {
+    transform: translate(-3em);
+    transition: all 0.1s;
+}
+#name:hover > .animan {
+    -webkit-transform: scale(1, 0);
+    -moz-transform: scale(1, 0);
+    -o-transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
+    transform: scale(1, 0);
+    transition: all 0.1s;
+}
+
 
 
 #wave-svg {

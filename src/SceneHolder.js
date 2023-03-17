@@ -69,7 +69,7 @@ function Loader() {
 }
 
 function Header() {
-    var name = "rodrigo zea."
+    var name = "rodrigo zea"
     var nameArr = useRef([])
     const nameArray = [...name].forEach(c => nameArr.current.push(c))
     
@@ -77,7 +77,17 @@ function Header() {
         <div id="header">
             <div id="name">
                 {
-                    nameArr.current.map((i, index) => {return(<span id={i+index} key={index}>{i}</span>)})
+                    nameArr.current.map((i, index) => {
+                        if (index == 0 || index == 8) {
+                            return(
+                                <div id={"l"+index} ><span key={index}>{i}</span></div>
+                            )
+                        } else {
+                            return(
+                                <div className='animan' ><span key={index}>{i}</span></div>
+                            ) 
+                        }
+                    })
                 }
             </div>
             
