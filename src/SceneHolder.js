@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, Suspense } from "react";
 import { BsTwitter, BsGithub } from "react-icons/bs";
 import { HiMail } from "react-icons/hi";
 import './index.scss'
+import SVGComponent from './SVGComponent'
 
 function LookAtCube() {
     const meshRef = useRef();
@@ -68,14 +69,24 @@ function Loader() {
 }
 
 function Header() {
+    var name = "rodrigo zea."
+    var nameArr = useRef([])
+    const nameArray = [...name].forEach(c => nameArr.current.push(c))
+    
     return(
         <div id="header">
-            <span>rodrigo zea.</span>
+            <div id="name">
+                {
+                    nameArr.current.map((i, index) => {return(<span id={i+index} key={index}>{i}</span>)})
+                }
+            </div>
+            
             <div id="icons">
                 <BsTwitter style={{marginRight:'0.3em'}}/>
                 <BsGithub style={{marginRight:'0.3em'}}/>
                 <HiMail/>
             </div>
+            
         </div>
     )
 }
@@ -84,6 +95,7 @@ export default function SceneHolder() {
     return(
         <div id="container">
             <Header/>
+            <SVGComponent/>
             <Canvas>
                 <PerspectiveCamera makeDefault position={[-1.3, -0.5, 2]}/>
                 <ambientLight />

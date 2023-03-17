@@ -8,22 +8,33 @@ html, body, #root, #container {
 }
 
 #header {
-    z-index: 3;
+    z-index: 4;
     position: fixed;
     width: 100%;
     overflow: hidden;
     color: white;
-    background-color: rgb(86, 43, 226);
+    background-color: rgb(86, 34, 226);
     display: flex;
     justify-content: space-between;
     font-family: 'Golos Text', sans-serif;
     font-size: 1.5em;
-    padding: 1em;
+    padding: 0.8em;
     user-select: none;
     height: auto;
-    
 }
 
 #icons {
-    margin-right: 3em;
+    margin-right: 2em;
+}
+
+#name:hover > #r0 {
+    color: black;
+    transition: color 0.5s ease;
+}
+
+
+#wave-svg {
+    position: fixed;
+    top: 4em;
+    z-index: 3;
 }
